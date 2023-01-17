@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        
+        function findMax(num){
+
+            console.log("Array = ", num);
+
+            let max = num[0];  // we use this b/c if we have -ive values in array then max=0 will not work. So we take array's 1st value as max
+
+        for (i=0; i<=num.length; i++){
+            
+            if(num[i]>=max){
+                max = num[i] ;
+                
+            }
+        }
+        console.log("Maximum number = ", max)
+        // return max;
+        }
+
+        findMax([12,26,8,4,20])
+        // findMax([-12,-26,-8,-4,-20])   // All Negative
+        // console.log(findMax([20,30,15,50,20]))
+
+    </script>
+
+</body>
+</html>

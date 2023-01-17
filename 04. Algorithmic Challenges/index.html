@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h2> JavaScript Algorithm Practice</h2>
+
+
+<script>
+
+//  ------------------- Start 03. Count Vowels  in a string -------------------
+
+
+document.write(" <h3> 03. Count Vowels in a string: </h3>");
+
+                
+                function countVowels(str){
+                const vowels = "aeiou";
+                let counter = 0;
+                
+                for (let i=0; i<str.length; i++){
+                    if (vowels.includes(str[i])===true) {    // =  (vowels.includes(str[i]))
+                        document.write(str[i]);
+                    counter++;
+                    }
+                }
+                
+                return counter;
+                }
+
+                document.write("Vowels = " + countVowels("umberalla"));
+                
+                // console.log(countVowels("elephant"));
+                    
+
+
+ //  ------------------- End 03. Count Vowels in a string -------------------
+
+ document.write("<br>");
+
+
+ //  ------------------- Start Display string 1 by 1 -------------------
+
+                function displayText(ch){
+                    for (j=0; j<=ch.length; j++){
+                        console.log(ch[j])
+                    }
+                }
+                // document.write(displayText("akash"));
+
+                console.log(displayText("akash"));
+
+
+ //  ------------------- End Display string 1 by 1 -------------------
+
+ document.write("<br>");
+
+
+ //  ------------------- Start Display string 1 by 1  (2nd Method)-------------------
+
+
+            // let vowels = "aeiou";
+            // for(var elem of vowels)
+            
+            // document.write (elem);
+
+            // console.log (elem);
+
+ //  ------------------- End Display string 1 by 1 -------------------
+
+
+
+//  ------------------- Start 04. Opposite Numbers -------------------
+
+document.write(" <h3> 04. Opposite Numbers: Return Opposite of a given number: </h3>");
+
+                
+function opposite(num){
+               
+                // num = -1*num; 
+                
+                return -num;
+                }
+
+                document.write(opposite("-8"));
+                
+                console.log(opposite("2"));
+                    
+
+
+ //  ------------------- End 04. Opposite Numbers -------------------
+
+ document.write("<br>");
+
+
+//  ------------------- Start 05. Even or Odd -------------------
+document.write("<h3> 05. Check even or Odd number </h3> ");
+
+document.write("By if else = ");
+   
+function evenodd(num){
+               
+               if (num%2===0){
+
+                return "Even"; //or document.write("it is an odd number")
+
+               }
+                return "Odd";  // we can also use it with else 
+
+   }
+
+               document.write(evenodd(5));
+                                  
+
+
+//  ------------------- End 05. Even or Odd -------------------
+
+document.write("<br>");
+
+
+//  ------------------- Start Even or Odd Number -------------------
+
+                            // by ternary operator
+document.write("By ternary operator = ");
+
+function evenodd(num){
+        return num%2 ===0 ? "Even":"Odd";              
+}  
+
+document.write(evenodd(8));
+                                  
+
+
+//  ------------------- End Even or Odd Number -------------------
+
+document.write("<br>");
+
+
+
+//  ------------------- Start 06. Get Middle from a string -------------------
+
+                            // Video 06. Get Middle (By JS with Tenzin)
+
+document.write(" <h3>06. Get Middle from a string (Method-1) = </h3>");
+
+function getMiddle(str){
+    if (str.length % 2 === 0) {
+        // console.log(str.length/2);
+        return str.slice ((str.length/2)-1, str.length/2+1);
+    }
+    return str[Math.floor(str.length/2)];  // For string of Odd length && Math.florr is used to get ans in whole number
+}  
+
+document.write(getMiddle("testings"));  // Even Length string
+document.write("<br>");
+
+document.write(getMiddle("Cartoon")); // Odd length string
+
+document.write("<br>");
+
+document.write(getMiddle("Middle")); // Even length string
+document.write("<br>");
+
+document.write(getMiddle("C")); // Odd length string
+
+//  ------------------- End 06. Get Middle from a string -------------------
+
+document.write("<br>");
+
+
+//  ------------------- Start 06. Get Middle from a string (2nd Method) -------------------
+
+
+                                // Video 06. Get Middle (By JS with Tenzin)
+
+document.write(" <h3>06. Get Middle from a string (Method-2) = </h3>");
+
+function getMiddle(str){
+    if (str.length % 2 === 0) {
+        
+        return str[(str.length/2)-1]+str[(str.length/2)-1];
+    }
+    return str[Math.floor(str.length/2)];  // For string of Odd length && Math.florr is used to get ans in whole number
+}  
+
+document.write(getMiddle("testings"));  // Even Length string
+document.write("<br>");
+
+document.write(getMiddle("Cartoon")); // Odd length string
+
+document.write("<br>");
+
+document.write(getMiddle("Middle")); // Even length string
+document.write("<br>");
+
+document.write(getMiddle("C")); // Odd length string
+
+
+//  ------------------- End 06. Get Middle from a string -------------------
+
+
+
+document.write("<br>");
+
+
+//  ------------------- Start 07. Jaden Case -------------------
+
+
+                                // Video 07. Jaden Case (By JS with Tenzin)
+
+/*
+Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, 
+but they are not capitalized in the same way he originally typed them.
+
+*/
+
+document.write(" <h3 style='color:red'> 07: Captilized first letter of each word  = How can mirrors be real if our eyes aren't real </h3>");
+
+function capitalized(word){
+    return word[0].toUpperCase() + word.slice(1).toLowerCase();    // This function will captilized 1st letter and remaining letter will be lower
+}
+
+function toJadenCase(str){
+
+    let words = str.split(" ")         // we will get word of sentence instead of single character
+    let result = [ ];
+
+    for (let word of words){          
+    result.push(capitalized(word))
+    }
+
+    return result.join(" "); 
+}  
+document.write(toJadenCase("How can mirrors be real if our eyes aren't real")); // Not Jaden-Cased:
+
+console.log(toJadenCase("How can mirrors be real if our eyes aren't real")); // Not Jaden-Cased:
+
+// Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+
+
+
+//  ------------------- End 07. Jaden Case -------------------
+
+
+
+document.write("<br>");
+
+
+
+
+//  ------------------- Start 08. Mumbling -------------------
+
+
+                                // Video 08. Mumbling (By JS with Tenzin)
+
+
+document.write(" <h3 style='color:blue'> 08. Mumbling </h3>");
+
+function funkyCapitalized(letter,num){
+    let result = "";
+    for (let i=0; i<num; i++) {
+        result += i === 0 ? letter.toUpperCase() : letter.toLowerCase();
+    }    
+    return result;
+
+}
+
+function accum(str){
+
+    let result = [];
+    let letters = str.split("");
+    let counter = 1;
+    for (let letter of letters){
+        result.push(funkyCapitalized(letter,counter));
+        counter++;
+    }
+    return result.join("-");
+
+
+}
+
+  
+document.write(accum("abcd")); // Output = "A-Bb-Ccc-Dddd":
+
+console.log(accum("abcd")); // Output = "A-Bb-Ccc-Dddd":
+
+
+
+//  ------------------- End 08. Mumbling -------------------
+
+
+
+document.write("<br>");
+
+
+
+//  ------------------- Start 09. Find Max -------------------
+
+
+                                // Video 09. Find Max (By JS with Tenzin)
+
+document.write(" <h3> 09. Find Max  = </h3>");
+
+    function findMax(nums){
+        
+        // let max=0;
+        let max=nums[0];   // we use this b/c if we have -ive values in array then max=0 will not work. So we take array's 1st value as max
+
+        for (i=0; i<=nums.length; i++){
+            if (nums[i]>=max){
+                max = nums[i];
+            }
+        }
+        return max;
+    }
+
+    document.write("  Max  = ");
+    document.write(findMax([3,4,0,34,54,65,2,6])) ;
+    // document.write(findMax([-3,-4,-34,-54,-65,-2,-6]))    // All Negative numbers 
+
+
+    //  ------------------- End 09. Find Max -------------------
+
+
+
+    document.write("<br>");
+
+
+//  ------------------- Start Find Min -------------------
+
+
+                                // Video 09. Find Max (By JS with Tenzin)
+
+document.write(" <h3> Find Min  = </h3>");
+
+    function findMin(nums){
+        
+        // let max=0;
+        let Min=nums[0];   // we use this b/c if we have -ive values in array then max=0 will not work. So we take array's 1st value as max
+
+        for (i=0; i<=nums.length; i++){
+            if (nums[i]<=Min){
+                Min = nums[i];
+            }
+        }
+        return Min;
+    }
+
+    document.write("  Min  = ");
+    document.write(findMin([3,4,34,-54,65,2,6])) 
+    // document.write(findMax([-3,-4,-34,-54,-65,-2,-6]))    // All Negative numbers 
+
+
+    //  ------------------- End Find Max -------------------
+
+
+
+    document.write("<br>");
+
+
+//  ------------------- Start 10. Square Every Digit -------------------
+
+
+                                // Video 10.  Square Every Digits (By JS with Tenzin)
+/* --- Problem
+
+Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+
+For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
+
+Note: The function accepts an integer and returns an integer
+
+*/
+
+
+document.write(" <h3>10. Square Every Digit (Method 1) = </h3>");
+
+function squareDigits(num){
+
+    let numString = num.toString().split("");
+    let sqNum = "";
+
+        
+        for(let i=0; i<=numString.length; i++){
+
+            sqNum += Math.pow(Number(numString[i]),2)
+        }
+         
+        return Number(sqNum);
+    }
+
+    // document.write("  Squared Digits  = ");
+    document.write(squareDigits("4321")); 
+    console.log(squareDigits("1234"));
+
+
+    //  ------------------- End 10. Square Every Digit -------------------
+   
+    document.write("<br>");
+
+
+
+//  ------------------- Start 10. Square Every Digit (2nd Method) -------------------
+
+
+                                // Video 10.  Square Every Digits (By JS with Tenzin)
+/* --- Problem
+
+Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+
+For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
+
+Note: The function accepts an integer and returns an integer
+
+*/
+
+
+document.write(" <h3>10. Square Every Digit (Method 2) = </h3>");
+
+    function squareDigits(nums){
+        
+        for(let i=0; i<=nums.length; i++){
+
+            sq = nums[i]*nums[i];
+
+            document.write(sq);
+            // console.log(sq);
+        }
+        return sq;
+    }
+
+    // document.write("  Square Digits  = ");
+    document.write(squareDigits("1234")); 
+
+
+    //  ------------------- End 10. Square Every Digit -------------------
+   
+    document.write("<br>");
+
+
+
+
+//  ------------------- Start 11. Exes and Ohs -------------------
+
+
+                                // Video 11. Exes and Ohs (By JS with Tenzin)
+/* --- Problem
+
+Check to see if a string has the same amount of 'x's and 'o's. 
+The method must return a boolean and be case insensitive. 
+The string can contain any char.
+
+XO("ooxx") => true
+XO("xooxx") => false
+XO("ooxXm") => true
+XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+XO("zzoo") => false
+
+*/
+
+
+document.write(" <h3>11. Exes and Ohs: Check how many Exes and Ohs   </h3>");
+document.write("<b> Problem: Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.</b>")
+
+function XO(str){
+    let xCount=0;
+    let oCount=0;
+    for (let i=0; i<str.length; i++){
+      
+        if(str[i].toLowerCase()==='x'){       // toLowerCase is used to make it case insensitive
+            xCount++;
+        }
+        if(str[i].toLowerCase()==='o'){
+            oCount++;
+        }
+    }
+
+    if (xCount === 0 && oCount ===0){       // to check if there is no 'x' and no 'o'
+        return true;
+    }
+    else if (xCount === oCount){       // to check if there is same number of 'x' and 'o'
+        return true;
+    } 
+    else {
+        return false;
+    }
+}
+
+        document.write("ooxx = ");
+        document.write(XO("ooxx"))      // => true
+                                                                        document.write("<br>");
+        document.write("xooxx = ");
+        document.write(XO("xooxx"))     //=> false
+                                                                        document.write("<br>");
+        document.write("ooxXm = ");
+        document.write(XO("ooxXm"))     //=> true
+                                                                        document.write("<br>");
+        document.write("zpzpzpp = ");
+        document.write(XO("zpzpzpp"))   //=> true // when no 'x' and 'o' is present should return true
+                                                                        document.write("<br>");
+        document.write("zzoo = ");
+        document.write(XO("zzoo"))      //=> false
+
+
+//-- By Console Method
+
+        console.log(XO("ooxx"))      // => true
+        console.log(XO("xooxx"))     //=> false
+        console.log(XO("ooxXm"))     //=> true
+        console.log(XO("zpzpzpp"))   //=> true // when no 'x' and 'o' is present should return true
+        console.log(XO("zzoo"))      //=> false
+
+
+    //  ------------------- End 11. Exes and Ohs -------------------
+   
+    document.write("<br>");
+
+
+
+//  ------------------- Start 12. Who Likes It -------------------
+
+
+                                // Video 12. Who Likes It (By JS with Tenzin)
+/* --- Problem
+
+
+
+*/
+
+
+document.write(" <h3>12. Who Likes It   </h3>");
+
+        function likes(names){
+
+            switch(names.length) {
+                case 0:
+                    return "No one likes it";
+                    break;
+                case 1:
+                    return `${names[0]} likes it`;   // ` ` is used in ES6 (It is easier then JS to concatinate variables)
+                    break;
+                case 2:
+                    return `${names[0]} and ${names[1]} likes it`;   // ` ` is used in ES6 (It is easier then JS to concatinate variables)
+                    break;
+                 case 3:
+                    return `${names[0]}, ${names[1]} and ${names[2]} likes it`;   // ` ` is used in ES6 (It is easier then JS to concatinate variables)
+                    break;
+                               
+            }
+            if (names.length > 3) {
+                return `${names[0]},${names[1]} and ${names.length-2} others like it`;
+
+            }
+
+        }
+
+        // likes[""];
+        // document.write(likes["Akash"]);
+        // likes["Akash","Qasim"];
+        // likes["Akash","Qasim","Raza"];
+        // likes["Akash","Qasim","Raza", "Rehan"];
+        // likes["Akash","Qasim","Raza", "Rehan","Taimoor"];
+
+
+//----------------- Template strings note review (JS VS ES6)
+
+        // document.write("<br> ");
+
+        // let fruite1 = "Apple";
+        // let fruite2 = "Banana";
+
+        // document.write("I like " + fruite1 + " and I also like " + fruite2 + ".");      // Core JS
+        // document.write("<br> ");
+        // document.write(`I like ${fruite1} and I also like ${fruite2}.`);    // ES6
+        
+        
+        
+    //  ------------------- End 12. Who Likes It -------------------
+   
+    document.write("<br>");
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+//     var n=45;
+    
+
+//     if(n%2==0)
+//     {
+//         document.write(n + " is an even number")
+//     }
+//     else{
+//         document.write(n + " is an odd number")
+//     }
+//     document.write("<br>");
+
+// n = prompt("please enter any number to check it is even or odd")
+
+// if (n%2==0){
+//         document.write(n + " is an even number");
+//         alert(n + " is an even number");
+//     }
+// else
+//         document.write(n + " is an odd number")
+
+</script>
+
+
+
+
+
+</body>
+</html>
